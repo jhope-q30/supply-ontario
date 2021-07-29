@@ -54,7 +54,7 @@ class AddMarkup_Nav_Main extends Walker_Nav_Menu {
 }
 /* SOCIAL MEDIA MENU IN HEADER */
 /* ADD SLUG TO CLASSES */
-class AddMarkup_Nav_Widget extends Walker_Nav_Menu {
+class AddMarkup_Nav_Social extends Walker_Nav_Menu {
 	/// <li> items
 	public function start_el( &$output, $item, $depth = 0, $args = null, $id = 0 ) {
 		$slug = !empty( $item->slug ) ? $item->slug : get_post_field( 'post_name', $item->object_id );
@@ -69,12 +69,4 @@ class AddMarkup_Nav_Widget extends Walker_Nav_Menu {
 		$output = sprintf( $output, $image );
 	}
 }
-add_filter( 'widget_nav_menu_args', function( $nav_menu_args, $nav_menu, $args, $instance ) {
-	if ( $args[ 'id' ] == 'footer-social' ) {
-		$nav_menu_args[ 'link_before' ] = '<span class="icon">%s</span><span class="screen-reader-text">';
-		$nav_menu_args[ 'link_after' ]  = '</span>';
-		$nav_menu_args[ 'walker' ]      = new AddMarkup_Nav_Widget();
-	}
-	return $nav_menu_args;
-}, 10, 4 );
 

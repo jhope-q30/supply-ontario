@@ -136,17 +136,6 @@ function _supply_ontario_widgets_init() {
 			'after_title'   => '</span>',
 		)
 	);
-	register_sidebar(
-		array(
-			'name'          => esc_html__( 'Header Social Media Links', '_supply_ontario' ),
-			'id'            => 'header-social',
-			'description'   => esc_html__( 'Add social media links widget to header.', '_supply_ontario' ),
-			'before_widget' => '',
-			'after_widget'  => '',
-			'before_title'  => '<span class="d-none">',
-			'after_title'   => '</span>',
-		)
-	);
 }
 add_action( 'widgets_init', '_supply_ontario_widgets_init' );
 

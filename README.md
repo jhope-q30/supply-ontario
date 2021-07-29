@@ -9,6 +9,8 @@ Starter theme for Supply Ontario
 
 Use header.php for reference
 
+Search bar in header uses default search widget from Wordpress. Refer to functions.php for "register_sidebar" code for that widget
+
 **Navigation**
 
 Supply Ontario Navigation does not require any js libraries, or css framework(s).
@@ -29,9 +31,9 @@ Navigation files are
 
 **Footer**
 
-Menus are
+Menus are set in Wordpress Menus
 
-footer-menu
+- footer-menu
 
 **Grid**
 

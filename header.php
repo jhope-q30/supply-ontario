@@ -33,12 +33,22 @@
 				<button class="menu-toggle" id="toggler" aria-controls="site-navigation" aria-expanded="false"><span class="screen-reader-text"><?php esc_html_e( 'Primary Menu', '_supply_ontario' ); ?></span></button>
 			</div>
 		</div>
-		<nav id="site-secondary-menu" class="secondary-menu" aria-label="<?php esc_html_e( 'Resources and Tools', '_supply_ontario' ); ?>"><?php
+		<nav id="site-secondary-menu" class="secondary-menu" aria-label="<?php esc_html_e( 'Careers and Contact', '_supply_ontario' ); ?>"><?php
 			wp_nav_menu(
 				array(
 					'theme_location'  => 'secondary-menu',
 					'container_class' => 'menu-container',
 					'items_wrap'      => '<ul id="%1$s" class="%2$s">%3$s</ul>',
+				)
+			);
+			wp_nav_menu(
+				array(
+					'theme_location'  => 'social-menu',
+					'link_before'     => '<span class="icon">%s</span><span class="screen-reader-text">',
+					'link_after'      => '</span>',
+					'container_class' => 'social-container',
+					'items_wrap'      => '<ul id="%1$s" class="%2$s">%3$s</ul>',
+					'walker'          => new AddMarkup_Nav_Social()
 				)
 			);
 		?></nav>
@@ -47,7 +57,6 @@
 			wp_nav_menu(
 				array(
 					'theme_location'  => 'primary-menu',
-					'menu_id'         => 'primary-menu',
 					'container_class' => 'menu-container',
 					'items_wrap'      => '<ul id="%1$s" class="%2$s" role="menubar">%3$s</ul>',
 					'walker'          => new AddMarkup_Nav_Main()
