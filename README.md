@@ -13,11 +13,11 @@ Use header.php for reference
 
 Supply Ontario Navigation does not require any js libraries, or css framework(s).
 
-Menus are
+Menus are set in Wordpress Menus
 
-primary-menu
-secondary-menu
-social-menu
+- primary-menu
+- secondary-menu
+- social-menu
 
 Refer to header.php, functions.php for implementation
 
