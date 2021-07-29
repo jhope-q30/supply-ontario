@@ -1,6 +1,108 @@
-// Center block
+/// Event wrapper
+/// @author Harry Roberts
+/// @param {Bool} $self [false] - Whether or not to include current selector
+/// @link https://twitter.com/csswizardry/status/478938530342006784 Original tweet from Harry Roberts
+@mixin on-event( $self: false ) {
+	@if $self {
+		&,
+		&:hover,
+		&:active,
+		&:focus {
+			@content;
+		}
+	} @else {
+		&:hover,
+		&:active,
+		&:focus {
+			@content;
+		}
+	}
+}
+/// change placeholder color
+@mixin placeholder-color( $color:#000 ){
+	&::-webkit-input-placeholder { /* Chrome/Opera/Safari */
+		color: $color;
+	}
+	&::-moz-placeholder { /* Firefox 19+ */
+		color: $color;
+	}
+	&:-ms-input-placeholder { /* IE 10+ */
+		color: $color;
+	}
+	&:-moz-placeholder { /* Firefox 18- */
+		color: $color;
+	}
+}
+/// Center block alignment
 @mixin center-block {
 	display: block;
 	margin-left: auto;
 	margin-right: auto;
 }
+/// make image block and 100%
+@mixin full-img {
+	margin:0;
+	padding:0;
+	display:block;
+	width:100%;
+	max-width:100%;
+	height:auto;
+}
+/// dropshadow
+@mixin dropshadow( $operator: '' ) {
+	-webkit-box-shadow: 0 4px 5px 0 rgba( 0, 0, 0, 0.3 ) #{$operator};
+	-moz-box-shadow:    0 4px 5px 0 rgba( 0, 0, 0, 0.3 ) #{$operator};
+	box-shadow:         0 4px 5px 0 rgba( 0, 0, 0, 0.3 ) #{$operator};
+}
+/// svg icon background
+@mixin svg-icon( $svg, $w: 20px, $h: 20px ){
+    background-size:$w $h;
+	background-repeat:no-repeat;
+	background-position:50% 50%;
+	background-image:$svg;
+}
+// reset margin, padding, border, font
+@mixin reset-list( $m: 0, $p: 0, $fs: 1em, $ls: none ) {
+	margin:$m;
+	padding:$p;
+	list-style:$ls;
+	font-size:$fs;
+}
+/// reset button
+@mixin reset-default-btn() {
+	-webkit-appearance:none;
+	-moz-appearance:none;
+	appearance:none;
+	border-radius:0;
+}
+/// reset button
+@mixin reset-input() {
+	margin:0;
+	padding:0;
+	background:none;
+	border-radius:0;
+	border:none;
+}
+/// animations
+
+/// timing
+$timing: ();
+$timing: map-merge(
+    (
+        "xs": 0.222s,
+        "s":  0.39s,
+        "m":  0.71s,
+        "l":  1.0001s,
+    ),
+    $timing
+);
+/// transition
+@mixin x-transition( $t: $transition, $s: 0.222s, $e: ease-out ){
+    -webkit-transition: $t $s $e;
+    -moz-transition:    $t $s $e;
+    -ms-transition:     $t $s $e;
+    -o-transition:      $t $s $e;
+    transition:         $t $s $e;
+}
+/// Rotate
+@mixin x-rotate(){ transform: rotate( 180deg ) map-get( $timing, "s" ) ease-out; }

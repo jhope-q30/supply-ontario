@@ -25,7 +25,7 @@
 <?php wp_body_open(); ?>
 <div id="page" class="site">
 <a class="skip-link screen-reader-text" href="#primary"><?php esc_html_e( 'Skip to content', '_supply_ontario' ); ?></a>
-<header id="masthead" class="site-header pos-abs">
+<header id="masthead" class="site-header">
 	<div class="site-banner">
 		<div class="site-branding">
 			<div class="site-branding-banner">
@@ -46,7 +46,7 @@
 					'theme_location'  => 'social-menu',
 					'link_before'     => '<span class="icon">%s</span><span class="screen-reader-text">',
 					'link_after'      => '</span>',
-					'container_class' => 'social-container',
+					'container_class' => 'menu-container',
 					'items_wrap'      => '<ul id="%1$s" class="%2$s">%3$s</ul>',
 					'walker'          => new AddMarkup_Nav_Social()
 				)

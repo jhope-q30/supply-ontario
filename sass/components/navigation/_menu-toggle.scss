@@ -1,0 +1,65 @@
+/// navigation toggle
+.menu-toggle {
+
+	@include reset-default-btn;
+
+    flex-shrink:0;
+
+	margin:0;
+    padding:0 map-get( $padding, 'sm' );
+	width:80px;
+	height:auto;
+	border:0;
+	background:none;
+	background-image:$navbar-toggle;
+	background-repeat:no-repeat;
+	background-position:50% 50%;
+	background-size:44px;
+
+	/// when toggle is open
+	&.menu-open {
+
+		/// change background svg
+		background-size:32px;
+		background-image:$close;
+
+	}
+
+	@include media-breakpoint-up( lg ) { display:none; } /// hide toggle on desktop
+
+}
+
+/// navigation display toggles
+.main-navigation,
+.secondary-menu,
+.header-search {
+
+	display:none;
+
+	.menu-container,
+    .search-form {
+
+		opacity:0;
+		@include x-transition( opacity );
+
+	}
+
+	@include media-breakpoint-up(lg) {
+
+		display:block;
+        
+		.menu-container,
+        .search-form { opacity:1 !important; }
+ 
+	}
+
+	/// toggled display
+	&.menu-open { display:block; }
+	&.menu-fade {
+
+		.menu-container,
+        .search-form { opacity:1; }
+
+	}
+
+}

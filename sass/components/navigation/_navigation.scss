@@ -1,0 +1,215 @@
+@import "menu-toggle";
+
+/// navigation variables
+$expander__icon: $chevron;
+$expander__size: 44px;
+$navigation_color: $color__navigation;
+$navigation_border_style: 6px solid $color__navigation-border;
+$navigation_border_color: $color__navigation-border;
+$submenu__min_width: 260px;
+$submenu__color: $color__navigation;
+$submenu__hover_link: $color__navigation-border;
+$submenu__z_index: $sub-menu-z-index;
+
+$link__padding: map-get( $padding, "xs" ) map-get( $padding, "sm" );
+$link__font_size :map-get( $text-font-size, lg );
+$link__font_weight: map-get( $text-font-weight, bold );
+$link__color:$white;
+
+/// wordpress primary navigation
+.main-navigation {
+
+	/// menu expanders
+	button.sub-menu-toggle {
+
+		flex-shrink:0;
+
+		@include reset-default-btn;
+
+		border:0;
+		background:none;
+		width:$expander__size;
+		height:$expander__size;
+
+		@include svg-icon( $expander__icon );
+
+		-webkit-transition-duration: map-get( $timing, "xs" );
+		-moz-transition-duration:    map-get( $timing, "xs" );
+		-o-transition-duration:      map-get( $timing, "xs" );
+		transition-duration:         map-get( $timing, "xs" );
+
+		-webkit-transform: rotate( 90deg );
+		-moz-transform:    rotate( 90deg );
+		-o-transform:      rotate( 90deg );
+		transform:         rotate( 90deg );
+
+		@include media-breakpoint-up( lg ) { background-size:16px 16px; }
+
+	}
+
+	// all links
+	a { 
+			
+		display:block;
+		color:$link__color;
+		font-size:$link__font_size;
+		font-weight:$link__font_weight;
+		padding:$link__padding;
+		text-decoration:none;
+		background-color:$navigation_color;
+		@include on-event { text-decoration: underline; }
+	
+	}
+
+	// submenus
+	ul.sub-menu {
+
+		width:100%;
+		background-color:$submenu__color;
+		display:none;
+
+		/// desktop style
+		@include media-breakpoint-up( lg ) {
+
+			position:absolute;
+			top:100%;
+			left:0;
+			z-index:$submenu__z_index;
+			min-width:$submenu__min_width;
+			@include dropshadow;
+
+		}
+
+		li {
+			
+			border-top:$navigation_border_style;
+
+			a {
+
+				background-color:$submenu__color;
+				@include x-transition( background-color );
+				@include on-event { background-color:$submenu__hover_link; }
+
+			}
+
+			&.current-menu-item {
+
+				a { background-color:$submenu__hover_link; }
+
+			}
+		
+		}
+
+	}
+
+	// container
+	.menu-container {
+
+		width:100%;
+		border-top:$navigation_border_style;
+		@include media-breakpoint-up( lg ) { border:0; }
+
+		// all ul, li
+		ul, li { @include reset-list; }
+
+		// all screen styles for menu
+		ul.menu {
+	
+            display:block;
+			border:$navigation_border_style;
+			background-color:$navigation_border_color;
+			border-top:0;
+		
+			@include media-breakpoint-up( lg ) {
+				
+				display:flex;
+				flex-direction:row;
+				flex-wrap:wrap;
+				border-right:0;
+			
+			}
+
+			// root level
+			> li {
+
+				flex-shrink:0;
+
+				// flex for mobile view layout
+				display:flex;
+				flex-direction:row;
+				flex-wrap:wrap;
+				justify-content:center;
+				background-color:$navigation_color;
+				@include x-transition( border-color );
+
+				> a { flex-grow:1; } /// space for mobile view
+
+				// mobile sub menu open
+				&.menu-open {
+
+					// animate menu expander
+					.sub-menu-toggle {
+
+						-webkit-transform: rotate( 270deg );
+						-moz-transform:    rotate( 270deg );
+						-o-transform:      rotate( 270deg );
+						transform:         rotate( 270deg );
+
+					}
+
+					// open sub menu
+					> ul.sub-menu { display:block; }
+
+				}
+
+				@include media-breakpoint-up( lg ) {
+
+					position:relative;
+					flex-grow:1;
+					flex-shrink:1;
+					padding:map-get( $padding, "xs" ) 0 0 0;
+					border-bottom: map-get( $padding, "xs" ) solid transparent;
+
+					> a {
+						
+						text-align:center;
+						flex-grow:0;
+						
+					}
+
+					ul.sub-menu { margin-top:map-get( $padding, "xs" ); }
+
+					// last item ( align right )
+					&:last-child {
+						
+						> ul {
+							
+							left:auto;
+							right:0;
+						
+						}
+					
+					}
+
+				}
+
+				/// section colors
+				/*&.menu-open,
+				&.current_page_parent,
+				&.current_page_item {
+
+					&.about-us { border-color:map-get( $bvg_colors, "about-us" ); }
+					&.admissions { border-color:map-get( $bvg_colors, "admissions" ); }
+					&.schools { border-color:map-get( $bvg_colors, "schools" ); }
+					&.student-life-and-athletics { border-color:map-get( $bvg_colors, "student" ); }
+					&.support-bvg { border-color:map-get( $bvg_colors, "support" ); }
+
+				}*/
+
+			}
+
+		}
+
+	}
+
+}

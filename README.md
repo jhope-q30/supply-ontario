@@ -37,7 +37,7 @@ Menus are set in Wordpress Menus
 
 **Grid**
 
-Bootstrap
+Bootstrap 4.60
 
 requires Bootstap scss for helpers, etc...
 
