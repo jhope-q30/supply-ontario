@@ -1,0 +1,65 @@
+/*!
+Theme Name: _supply_ontario
+Author: q30design
+Author URI: https://q30design.com/
+Description: Supply Ontario.
+Version: 1.0.0
+Tested up to: 5.6
+Requires PHP: 5.6
+License: GNU General Public License v2 or later
+License URI: LICENSE
+Text Domain: _supply_ontario
+Tags: custom-background, custom-logo, custom-menu, featured-images, threaded-comments, translation-ready
+
+This theme, like WordPress, is licensed under the GPL.
+
+_supply_ontario is based on Underscores https://underscores.me/, (C) 2012-2020 Automattic, Inc.
+
+*/
+
+// Import variables and mixins.
+@import "abstracts/abstracts";
+
+/*--------------------------------------------------------------
+# Generic
+--------------------------------------------------------------*/
+
+/* Box sizing
+--------------------------------------------- */
+@import "generic/box-sizing";
+
+/*--------------------------------------------------------------
+# Vendors
+--------------------------------------------------------------*/
+
+/* Bootstrap
+--------------------------------------------- */
+@import "vendors/bootstrap";
+
+/*--------------------------------------------------------------
+# Base
+--------------------------------------------------------------*/
+@import "base/base";
+
+/*--------------------------------------------------------------
+# Layouts
+--------------------------------------------------------------*/
+@import "layouts/header";
+@import "layouts/footer";
+
+/*--------------------------------------------------------------
+# Components
+--------------------------------------------------------------*/
+@import "components/components";
+
+/*--------------------------------------------------------------
+# Utilities
+--------------------------------------------------------------*/
+
+/* Accessibility
+--------------------------------------------- */
+@import "utilities/accessibility";
+
+/* Alignments
+--------------------------------------------- */
+@import "utilities/alignments";

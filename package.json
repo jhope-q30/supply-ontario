@@ -1,0 +1,26 @@
+{
+  "name": "supply-ontario",
+  "version": "1.0.0",
+  "description": "Supply Ontario",
+  "author": "q30 Design",
+  "license": "GPL-2.0-or-later",
+  "keywords": [
+    "WordPress",
+    "Theme"
+  ],
+  "homepage": "https://github.com/Automattic/_supply_ontario#readme",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Automattic/_supply_ontario.git"
+  },
+  "bugs": {
+    "url": "https://github.com/Automattic/_supply_ontario/issues"
+  },
+  "devDependencies": {
+    "node-sass": "^4.14.1",
+    "bootstrap": "^4.6.0"
+  },
+  "scripts": {
+    "build:css": "node-sass sass/ -o ./ --source-map true --output-style expanded --indent-type tab --indent-width 1"
+  }
+}
