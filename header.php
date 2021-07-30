@@ -33,26 +33,28 @@
 				<button class="menu-toggle" id="toggler" aria-controls="site-navigation" aria-expanded="false"><span class="screen-reader-text"><?php esc_html_e( 'Primary Menu', '_supply_ontario' ); ?></span></button>
 			</div>
 		</div>
-		<nav id="site-secondary-menu" class="secondary-menu" aria-label="<?php esc_html_e( 'Careers and Contact', '_supply_ontario' ); ?>"><?php
-			wp_nav_menu(
-				array(
-					'theme_location'  => 'secondary-menu',
-					'container_class' => 'menu-container',
-					'items_wrap'      => '<ul id="%1$s" class="%2$s">%3$s</ul>',
-				)
-			);
-			wp_nav_menu(
-				array(
-					'theme_location'  => 'social-menu',
-					'link_before'     => '<span class="icon">%s</span><span class="screen-reader-text">',
-					'link_after'      => '</span>',
-					'container_class' => 'menu-container',
-					'items_wrap'      => '<ul id="%1$s" class="%2$s">%3$s</ul>',
-					'walker'          => new AddMarkup_Nav_Social()
-				)
-			);
-		?></nav>
-		<?php if( is_active_sidebar( 'header-search' ) ): ?><div id="header-search" class="header-search"><?php dynamic_sidebar( 'header-search' ); ?></div><?php endif; ?>
+		<div id="site-secondary-menu" class="site-secondary-menu">
+			<nav class="secondary-menu" aria-label="<?php esc_html_e( 'Careers, Contact, and Socials', '_supply_ontario' ); ?>"><?php
+				wp_nav_menu(
+					array(
+						'theme_location'  => 'secondary-menu',
+						'container_class' => 'menu-container',
+						'items_wrap'      => '<ul id="%1$s" class="%2$s">%3$s</ul>',
+					)
+				);
+				wp_nav_menu(
+					array(
+						'theme_location'  => 'social-menu',
+						'link_before'     => '<span class="icon">%s</span><span class="screen-reader-text">',
+						'link_after'      => '</span>',
+						'container_class' => 'menu-container social-container',
+						'items_wrap'      => '<ul id="%1$s" class="%2$s">%3$s</ul>',
+						'walker'          => new AddMarkup_Nav_Social()
+					)
+				);
+			?></nav>
+			<?php if( is_active_sidebar( 'header-search' ) ): ?><div id="header-search" class="header-search"><?php dynamic_sidebar( 'header-search' ); ?></div><?php endif; ?>
+		</div>
 		<nav id="site-navigation" class="main-navigation" role="navigation"><?php
 			wp_nav_menu(
 				array(

@@ -5,7 +5,8 @@
 $expander__icon: $chevron;
 $expander__size: 44px;
 $navigation_color: $color__navigation;
-$navigation_border_style: 6px solid $color__navigation-border;
+$navigation_border_size: 6px;
+$navigation_border_style: $navigation_border_size solid $color__navigation-border;
 $navigation_border_color: $color__navigation-border;
 $submenu__min_width: 260px;
 $submenu__color: $color__navigation;
@@ -24,7 +25,6 @@ $link__color:$white;
 	button.sub-menu-toggle {
 
 		flex-shrink:0;
-
 		@include reset-default-btn;
 
 		border:0;
@@ -77,13 +77,12 @@ $link__color:$white;
 			left:0;
 			z-index:$submenu__z_index;
 			min-width:$submenu__min_width;
+			border-top:$navigation_border_style;
 			@include dropshadow;
 
 		}
 
 		li {
-			
-			border-top:$navigation_border_style;
 
 			a {
 
@@ -107,8 +106,8 @@ $link__color:$white;
 	.menu-container {
 
 		width:100%;
-		border-top:$navigation_border_style;
-		@include media-breakpoint-up( lg ) { border:0; }
+		background-color:$navigation_color;
+		@include media-breakpoint-up( lg ) { border-bottom:$navigation_border_style; }
 
 		// all ul, li
 		ul, li { @include reset-list; }
@@ -117,16 +116,12 @@ $link__color:$white;
 		ul.menu {
 	
             display:block;
-			border:$navigation_border_style;
-			background-color:$navigation_border_color;
-			border-top:0;
 		
 			@include media-breakpoint-up( lg ) {
 				
 				display:flex;
 				flex-direction:row;
 				flex-wrap:wrap;
-				border-right:0;
 			
 			}
 
@@ -134,16 +129,19 @@ $link__color:$white;
 			> li {
 
 				flex-shrink:0;
-
 				// flex for mobile view layout
 				display:flex;
 				flex-direction:row;
 				flex-wrap:wrap;
 				justify-content:center;
 				background-color:$navigation_color;
-				@include x-transition( border-color );
-
-				> a { flex-grow:1; } /// space for mobile view
+				@include media-breakpoint-up( lg ) { padding-top:map-get( $padding, 'xs' ); }
+				@include x-transition( background-color );
+				@include on-event { background-color:$submenu__hover_link; }
+				> a {
+					flex-grow:1;
+					background:none;
+				}
 
 				// mobile sub menu open
 				&.menu-open {
@@ -168,8 +166,7 @@ $link__color:$white;
 					position:relative;
 					flex-grow:1;
 					flex-shrink:1;
-					padding:map-get( $padding, "xs" ) 0 0 0;
-					border-bottom: map-get( $padding, "xs" ) solid transparent;
+					padding:0;
 
 					> a {
 						
@@ -178,7 +175,7 @@ $link__color:$white;
 						
 					}
 
-					ul.sub-menu { margin-top:map-get( $padding, "xs" ); }
+					ul.sub-menu { margin-top:0; }
 
 					// last item ( align right )
 					&:last-child {
@@ -193,19 +190,6 @@ $link__color:$white;
 					}
 
 				}
-
-				/// section colors
-				/*&.menu-open,
-				&.current_page_parent,
-				&.current_page_item {
-
-					&.about-us { border-color:map-get( $bvg_colors, "about-us" ); }
-					&.admissions { border-color:map-get( $bvg_colors, "admissions" ); }
-					&.schools { border-color:map-get( $bvg_colors, "schools" ); }
-					&.student-life-and-athletics { border-color:map-get( $bvg_colors, "student" ); }
-					&.support-bvg { border-color:map-get( $bvg_colors, "support" ); }
-
-				}*/
 
 			}
 

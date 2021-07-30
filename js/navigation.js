@@ -18,7 +18,7 @@
 	const rootItems        = menu.children;
 	const menuLinks        = menu.getElementsByTagName( 'a' );
 	const expanders        = menu.querySelectorAll( '.' + menuExpander );
-	const toggles          = [ 'header-search', 'site-navigation', 'site-secondary-menu' ]; /// items that the hamburger displays for mobile
+	const toggles          = [ 'site-navigation', 'site-secondary-menu' ]; /// items that the hamburger displays for mobile
 	const submenus         = menu.querySelectorAll( '.' + menuSub );
 
 	// keys codes to bind actions

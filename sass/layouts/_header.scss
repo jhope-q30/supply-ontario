@@ -1,10 +1,13 @@
-/*
-layout and order for items in header
-*/
+/* layout and order for items in header */
+$site-branding-width:220px;
+$site-secondary-menu_width: ( map-get( $container-max-widths, 'xl' ) - $site-branding-width );
+$header-search-width: 280px;
+
 .site-header {
 
     width:100%;
     background-color: $color__background-body;
+    padding: map-get( $padding, 'xs' ) 0 0 0;
 
     /// positoning
     &.pos-abs,
@@ -17,16 +20,26 @@ layout and order for items in header
 
     .site-banner {
 
-        display:flex;
-        flex-wrap:wrap;
-        align-items:center;
-
-        @include media-breakpoint-up( lg ) { justify-content:flex-end; }
+        @include media-breakpoint-up( lg ) {
+            
+            display:flex;
+            flex-wrap:wrap;
+            align-items:center;
+            justify-content:center;
+        
+        }
 
         .site-branding {
 
             flex-shrink:0;
-            flex-grow:1;
+            flex-grow:0;
+
+            @include media-breakpoint-up( xl ) {
+
+                max-width: $site-branding-width;
+                flex-basis: $site-branding-width;
+
+            }
 
             /// logo / menu toggle for mobile
             .site-branding-banner {
@@ -36,6 +49,8 @@ layout and order for items in header
                 justify-content:space-between;
                 align-items:stretch;
 
+                @include media-breakpoint-up( lg ) { display:block; }
+
                 a.custom-logo-link {
                     
                     flex-shrink:0;
@@ -44,7 +59,10 @@ layout and order for items in header
                     width:100%;
                     flex-basis:100%;
                     height:auto;
+                    padding: map-get( $padding, 'xs' );
                     max-width: $custom-logo-link-size;
+
+                    @include media-breakpoint-up( lg ) { padding: 0 0 map-get( $padding, 'xs' ) 0; }
 
                     img {
 
@@ -56,55 +74,69 @@ layout and order for items in header
                 
                 }
 
-                @include media-breakpoint-up( lg ) {
-                    
-                    display:block;
-                    border:0;
-                
+            }
+
+        }
+
+        .site-secondary-menu {
+            
+            @include media-breakpoint-up( lg ) {
+
+                display:flex;
+                justify-content:flex-end;
+                flex-wrap:wrap;
+
+            }
+
+            @include media-breakpoint-up( xl ) {
+
+                max-width: $site-secondary-menu_width;
+                flex-basis: $site-secondary-menu_width;
+                flex-shrink:0;
+
+            }
+
+            /// secondary nav flex options
+            .secondary-menu {
+
+                flex-shrink:0;
+                flex-grow:1;
+                width:100%;
+                flex-basis:100%;
+
+                display:flex;
+                flex-wrap:nowrap;
+
+                @include media-breakpoint-up( sm ) {
+
+                    justify-content:flex-end;
+
                 }
 
             }
 
-        }
+            /// header search field flex options
+            .header-search {
 
-        .header-search {
+                margin-top:map-get( $padding, 'xs' );
 
-            margin:0;
-            flex-shrink:1;
-            flex-grow:1;
-            width:100%;
-            flex-basis:100%;
+                @include media-breakpoint-up( lg ) {
 
-            @include media-breakpoint-up( lg ) {
+                    margin: 0 0 map-get( $padding, 'sm' ) 0 !important;
+                    max-width: $header-search-width;
+                    flex-basis: $header-search-width;
 
-                margin-bottom:map-get( $padding, 'sm' );
-
-            }
-            
-            @include media-breakpoint-up( xl ) {
-
-                flex-grow:0;
-                width:auto;
-                flex-basis:auto;
-                margin:0;
-            
-            }
-
-        }
-
-        /// secondary nav flex options
-        .secondary-menu {
-
-            display:flex;
-
-            padding-left:map-get( $padding, "xs" );
-            order:99;
-
-            @include media-breakpoint-up( lg ) {
+                }
                 
-                order:0;
-                padding:0;
-            
+                @include media-breakpoint-up( xl ) {
+
+                    flex-grow:0;
+                    width:auto;
+                    flex-basis:auto;
+                    margin:0;
+                
+                }
+
             }
 
         }
@@ -117,8 +149,54 @@ layout and order for items in header
             width:100%;
             flex-basis:100%;
 
+            @include media-breakpoint-up( lg ) {
+
+                .menu-container {
+
+                    ul.menu {
+
+                        max-width: map-get( $container-max-widths, xl );
+                        @include make-container();
+
+                    }
+
+                }
+
+            }
+
         }
 
     }
+
+}
+
+/// navigation display toggles
+.main-navigation,
+.site-secondary-menu {
+
+	display:none;
+
+	.menu-container {
+
+		opacity:0;
+		@include x-transition( opacity );
+
+	}
+
+	@include media-breakpoint-up(lg) {
+
+		display:block;
+        
+		.menu-container { opacity:1 !important; }
+ 
+	}
+
+	/// toggled display
+	&.menu-open { display:block !important; }
+	&.menu-fade {
+
+		.menu-container { opacity:1; }
+
+	}
 
 }

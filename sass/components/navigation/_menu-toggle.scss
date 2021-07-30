@@ -28,38 +28,3 @@
 	@include media-breakpoint-up( lg ) { display:none; } /// hide toggle on desktop
 
 }
-
-/// navigation display toggles
-.main-navigation,
-.secondary-menu,
-.header-search {
-
-	display:none;
-
-	.menu-container,
-    .search-form {
-
-		opacity:0;
-		@include x-transition( opacity );
-
-	}
-
-	@include media-breakpoint-up(lg) {
-
-		display:block;
-        
-		.menu-container,
-        .search-form { opacity:1 !important; }
- 
-	}
-
-	/// toggled display
-	&.menu-open { display:block; }
-	&.menu-fade {
-
-		.menu-container,
-        .search-form { opacity:1; }
-
-	}
-
-}

@@ -27,9 +27,7 @@
 
 			}
 
-			@include media-breakpoint-up(lg) {
-
-				padding:0;
+			@include media-breakpoint-up( sm ) {
 
 				a { font-size:map-get( $text-font-size, 'sm' ); }
 
@@ -41,6 +39,24 @@
 				}
 
 			}
+
+			@include media-breakpoint-down( md ) {
+
+				padding:0 map-get( $padding, "xs" ) 0 0;
+
+			}
+
+		}
+
+		&.social-container {
+
+			@include media-breakpoint-up(lg) {
+
+				padding:0 0 0 map-get( $padding, "md" );
+
+			}
+
+			a { margin:0 map-get( $padding, "xxs" ); }
 
 		}
 
