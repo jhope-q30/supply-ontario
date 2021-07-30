@@ -8,13 +8,13 @@
     "WordPress",
     "Theme"
   ],
-  "homepage": "https://github.com/Automattic/_supply_ontario#readme",
+  "homepage": "https://github.com/jhope-q30/supply-ontario",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/Automattic/_supply_ontario.git"
+    "url": "git+https://github.com/jhope-q30/supply-ontario.git"
   },
   "bugs": {
-    "url": "https://github.com/Automattic/_supply_ontario/issues"
+    "url": "https://github.com/jhope-q30/supply-ontario/issues"
   },
   "devDependencies": {
     "node-sass": "^4.14.1",
