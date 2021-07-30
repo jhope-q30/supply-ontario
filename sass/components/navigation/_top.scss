@@ -1,0 +1,49 @@
+/// secondary navigation
+.secondary-menu {
+
+	ul, li { @include reset-list; }
+
+	.menu-container {
+
+		> ul {
+
+			padding:map-get( $padding, "sm" ) 0;
+
+			li {
+
+				padding:map-get( $padding, "xxs" ) 0;
+
+				a {
+
+					margin:0 map-get( $padding, "sm" );
+					color:$black;
+					display:block;
+					@include on-event { text-decoration: underline; }
+
+				}
+
+				&.current_page_item,
+				&.current-page-ancestor { a { font-weight: map-get( $text-font-weight, bold ); } }
+
+			}
+
+			@include media-breakpoint-up(lg) {
+
+				padding:0;
+
+				a { font-size:map-get( $text-font-size, 'sm' ); }
+
+				li {
+
+					display:inline-block;
+					padding:0;
+
+				}
+
+			}
+
+		}
+
+	}
+
+}

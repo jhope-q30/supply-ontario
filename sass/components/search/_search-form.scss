@@ -1,0 +1,44 @@
+.header-search {
+
+    margin:0;
+    padding:0;
+    display:flex;
+    align-items:stretch;
+    border:1px solid $color__background-hr;
+
+    /// resets
+    input { @include reset-input( !important ); }
+    label { @include srt(); }
+
+    input[ type="search" ] {
+
+        padding:0 map-get( $padding, 'sm' ) !important;
+        background-color:$white;
+        color:$black;
+        width:100%;
+        outline-color:$blue;
+
+        @include placeholder-color( $color: $black );
+
+    }
+
+    input[ type="submit" ],
+    button[ type="submit" ] {
+
+        @include reset-default-btn( !important );
+
+        width:44px;
+        height:44px;
+        overflow:hidden;
+        color:transparent !important;
+        border:0;
+        background:none;
+        background-color:$white;
+        background-size:32px 32px;
+        background-repeat:no-repeat;
+        background-position:50% 50%;
+        background-image:$search !important;
+
+    }
+
+}

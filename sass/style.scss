@@ -21,8 +21,16 @@ _supply_ontario is based on Underscores https://underscores.me/, (C) 2012-2020 A
 @import "abstracts/abstracts";
 
 /*--------------------------------------------------------------
-# Generic
+# Utilities
 --------------------------------------------------------------*/
+
+/* Accessibility
+--------------------------------------------- */
+@import "utilities/accessibility";
+
+/* Alignments
+--------------------------------------------- */
+@import "utilities/alignments";
 
 /* Box sizing
 --------------------------------------------- */
@@ -51,15 +59,3 @@ _supply_ontario is based on Underscores https://underscores.me/, (C) 2012-2020 A
 # Components
 --------------------------------------------------------------*/
 @import "components/components";
-
-/*--------------------------------------------------------------
-# Utilities
---------------------------------------------------------------*/
-
-/* Accessibility
---------------------------------------------- */
-@import "utilities/accessibility";
-
-/* Alignments
---------------------------------------------- */
-@import "utilities/alignments";
