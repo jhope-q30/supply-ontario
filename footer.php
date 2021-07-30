@@ -13,6 +13,15 @@
 
 <footer id="colophon" class="site-footer">
 	<div class="site-info">
+		<nav class="footer-menu" aria-label="<?php esc_html_e( 'Careers, Contact, and Socials', '_supply_ontario' ); ?>"><?php
+			wp_nav_menu(
+				array(
+					'theme_location'  => 'footer-menu',
+					'container_class' => 'menu-container',
+					'items_wrap'      => '<ul id="%1$s" class="%2$s">%3$s</ul>',
+				)
+			);
+		?></nav>
 	</div>
 </footer><!-- #colophon -->
 </div><!-- #page -->

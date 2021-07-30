@@ -41,3 +41,51 @@
     }
 
 }
+
+/* wp legacy search */
+
+.search-form {
+
+    margin:0;
+    padding:0;
+    border:1px solid $color__background-hr;
+    display:flex;
+    align-items:stretch;
+
+    /// resets
+    input { @include reset-input(); }
+
+    label {
+
+        flex-grow:1;
+        flex-shrink:0;
+        margin:0;
+        padding:0;
+
+        input.search-field {
+
+            padding:map-get( $padding, 'xs' ) map-get( $padding, 'sm' );
+            background-color:$white;
+            color:$black;
+            font-size:1.2em;
+            width:100%;
+
+            @include placeholder-color( $color: $black );
+
+        }
+
+    }
+
+    input.search-submit {
+
+        width:44px;
+        height:44px;
+        overflow:hidden;
+        color:transparent;
+        background-color:$white;
+
+        @include svg-icon( $search, map-get( $padding, 'lg' ), map-get( $padding, 'lg' ) );
+
+    }
+
+}
