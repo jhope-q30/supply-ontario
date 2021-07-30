@@ -136,6 +136,17 @@ function _supply_ontario_widgets_init() {
 			'after_title'   => '</span>',
 		)
 	);
+	register_sidebar(
+		array(
+			'name'          => esc_html__( 'Footer Site info', '_supply_ontario' ),
+			'id'            => 'footer-site-info',
+			'description'   => esc_html__( 'Add site info to footer.', '_supply_ontario' ),
+			'before_widget' => '',
+			'after_widget'  => '',
+			'before_title'  => '<span class="d-none">',
+			'after_title'   => '</span>',
+		)
+	);
 }
 add_action( 'widgets_init', '_supply_ontario_widgets_init' );
 

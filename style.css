@@ -8750,6 +8750,62 @@ textarea {
 	opacity: 1;
 }
 
+.site-footer {
+	background-color: #C1B28F;
+	margin-top: 64px;
+	padding: 24px 0 32px 0;
+}
+
+.site-footer .site-links .footer-menu {
+	display: inline-block;
+}
+
+.site-footer .site-links .footer-menu ul, .site-footer .site-links .footer-menu li {
+	margin: 0;
+	padding: 0;
+	list-style: none;
+	font-size: 1em;
+}
+
+.site-footer .site-links .footer-menu .menu-container > ul {
+	padding: 16px;
+}
+
+.site-footer .site-links .footer-menu .menu-container > ul li {
+	padding: 4px 0;
+}
+
+.site-footer .site-links .footer-menu .menu-container > ul li a {
+	margin: 0 16px;
+	font-weight: 600;
+	color: #000;
+	display: block;
+}
+
+.site-footer .site-links .footer-menu .menu-container > ul li a:hover, .site-footer .site-links .footer-menu .menu-container > ul li a:active, .site-footer .site-links .footer-menu .menu-container > ul li a:focus {
+	text-decoration: underline;
+}
+
+.site-footer .site-links .footer-menu .menu-container > ul li.current_page_item a, .site-footer .site-links .footer-menu .menu-container > ul li.current-page-ancestor a {
+	font-weight: 700;
+}
+
+@media (min-width: 576px) {
+	.site-footer .site-links .footer-menu .menu-container > ul a {
+		font-size: 0.9em;
+	}
+	.site-footer .site-links .footer-menu .menu-container > ul li {
+		display: inline-block;
+		padding: 0;
+	}
+}
+
+@media (max-width: 991.98px) {
+	.site-footer .site-links .footer-menu .menu-container > ul {
+		padding: 0 8px 0 0;
+	}
+}
+
 /*--------------------------------------------------------------
 # Components
 --------------------------------------------------------------*/
