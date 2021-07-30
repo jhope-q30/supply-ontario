@@ -8654,8 +8654,8 @@ textarea {
 
 @media (min-width: 1200px) {
 	.site-header .site-banner .site-secondary-menu {
-		max-width: 920px;
-		flex-basis: 920px;
+		max-width: 890px;
+		flex-basis: 890px;
 		flex-shrink: 0;
 	}
 }
@@ -8883,6 +8883,12 @@ textarea {
 	text-decoration: underline;
 }
 
+@media (min-width: 992px) {
+	.main-navigation a {
+		padding: 8px 32px;
+	}
+}
+
 .main-navigation ul.sub-menu {
 	width: 100%;
 	background-color: #047bc1;
@@ -8905,6 +8911,7 @@ textarea {
 
 .main-navigation ul.sub-menu li a {
 	background-color: #047bc1;
+	padding-bottom: 12px;
 	-webkit-transition: background-color 0.222s ease-out;
 	-moz-transition: background-color 0.222s ease-out;
 	-ms-transition: background-color 0.222s ease-out;
@@ -8951,11 +8958,10 @@ textarea {
 }
 
 .main-navigation .menu-container ul.menu > li {
-	flex-shrink: 0;
 	display: flex;
 	flex-direction: row;
 	flex-wrap: wrap;
-	justify-content: center;
+	justify-content: space-between;
 	background-color: #047bc1;
 	-webkit-transition: background-color 0.222s ease-out;
 	-moz-transition: background-color 0.222s ease-out;
@@ -8975,7 +8981,6 @@ textarea {
 }
 
 .main-navigation .menu-container ul.menu > li > a {
-	flex-grow: 1;
 	background: none;
 }
 
@@ -8993,8 +8998,6 @@ textarea {
 @media (min-width: 992px) {
 	.main-navigation .menu-container ul.menu > li {
 		position: relative;
-		flex-grow: 1;
-		flex-shrink: 1;
 		padding: 0;
 	}
 	.main-navigation .menu-container ul.menu > li > a {

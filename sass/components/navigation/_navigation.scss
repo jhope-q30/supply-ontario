@@ -13,7 +13,8 @@ $submenu__color: $color__navigation;
 $submenu__hover_link: $color__navigation-border;
 $submenu__z_index: $sub-menu-z-index;
 
-$link__padding: map-get( $padding, "xs" ) map-get( $padding, "sm" );
+$link__padding: map-get( $padding, "xs" ) map-get( $padding, "lg" );
+$link__padding-small: map-get( $padding, "xs" ) map-get( $padding, "sm" );
 $link__font_size :map-get( $text-font-size, lg );
 $link__font_weight: map-get( $text-font-weight, bold );
 $link__color:$white;
@@ -55,10 +56,11 @@ $link__color:$white;
 		color:$link__color;
 		font-size:$link__font_size;
 		font-weight:$link__font_weight;
-		padding:$link__padding;
+		padding:$link__padding-small;
 		text-decoration:none;
 		background-color:$navigation_color;
 		@include on-event { text-decoration: underline; }
+		@include media-breakpoint-up( lg ) { padding:$link__padding; }
 	
 	}
 
@@ -87,6 +89,7 @@ $link__color:$white;
 			a {
 
 				background-color:$submenu__color;
+				padding-bottom:12px;
 				@include x-transition( background-color );
 				@include on-event { background-color:$submenu__hover_link; }
 
@@ -128,18 +131,19 @@ $link__color:$white;
 			// root level
 			> li {
 
-				flex-shrink:0;
+				//flex-shrink:1;
 				// flex for mobile view layout
 				display:flex;
 				flex-direction:row;
 				flex-wrap:wrap;
-				justify-content:center;
+				justify-content:space-between;
 				background-color:$navigation_color;
 				@include media-breakpoint-up( lg ) { padding-top:map-get( $padding, 'xs' ); }
 				@include x-transition( background-color );
 				@include on-event { background-color:$submenu__hover_link; }
 				> a {
-					flex-grow:1;
+					//flex-grow:0;
+					//flex-shrink:1;
 					background:none;
 				}
 
@@ -164,8 +168,8 @@ $link__color:$white;
 				@include media-breakpoint-up( lg ) {
 
 					position:relative;
-					flex-grow:1;
-					flex-shrink:1;
+					//flex-grow:1;
+					//flex-shrink:1;
 					padding:0;
 
 					> a {

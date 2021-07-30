@@ -1,6 +1,6 @@
 /* layout and order for items in header */
 $site-branding-width:220px;
-$site-secondary-menu_width: ( map-get( $container-max-widths, 'xl' ) - $site-branding-width );
+$site-secondary-menu_width: ( ( map-get( $container-max-widths, 'xl' ) - $grid-gutter-width ) - $site-branding-width );
 $header-search-width: 280px;
 
 .site-header {
